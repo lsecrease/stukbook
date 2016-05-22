@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  root 'pages#home'
  
  #Fetches everything in the User controller
- resources :users, only: [:show]
+ resources :users, only: [:show, :index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
