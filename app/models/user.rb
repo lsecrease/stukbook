@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   # Makes sure there's a Usernmae when registering       
   validates_presence_of :username
   validates_uniqueness_of :username
+  
+  has_many :friendships, dependent: :destroy
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
 end
