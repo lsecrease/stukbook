@@ -11,11 +11,12 @@ class UsersController < ApplicationController
           @users = current_user.pending_friend_requests_to.map(&:friend)
         else
           @users = User.where.not(id: current_user.id)
-        end
+      end
    end
   
-  def show
-  end
+    def show
+    @activities = PublicActivity::Activity.where(owner_id: @user.id) + PublicActivity::Activity.where(recipient_id: @user.id)
+    end
   
 private
   
