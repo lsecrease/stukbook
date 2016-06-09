@@ -18,7 +18,7 @@ Rails.application.routes.draw do
    end
    
  end
-
+ resources :posts, only: [:create, :edit, :update, :destroy]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
